@@ -1,0 +1,87 @@
+/* Full-page background for login */
+.loginPageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f4f8; /* Light background color for the page */
+  }
+  
+  .loginFormWrapper {
+    width: 100%;
+    max-width: 320px; /* Smaller form size */
+    padding: 25px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .loginTitle {
+    color: #004ba0;
+    font-size: 22px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .inputGroupLogin {
+    margin-bottom: 12px;
+    text-align: left;
+  }
+  
+  .inputLabelLogin {
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px;
+    display: block;
+  }
+  
+  .inputFieldLogin, .inputSelectLogin {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .inputFieldLogin:focus, .inputSelectLogin:focus {
+    border-color: #004ba0;
+  }
+  
+  .loginButtonSubmit {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #004ba0, #0072ff);
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .loginButtonSubmit:hover {
+    background-color: #003f7f;
+  }
+  
+  /* Don't have an account text */
+  .noAccountText {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Signup link */
+  .signupLinkLogin {
+    color: #004ba0;
+    text-decoration: none;
+  }
+  
+  .signupLinkLogin:hover {
+    text-decoration: underline;
+  }
+  

@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import LandingPage from './components/LandingPage';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import AdminDashboard from './components/AdminDashboard';
-import PatronDashboard from './components/PatronDashboard';
+import AdminDashboard from './components/Admin/AdminDashboard';
+import PatronDashboard from './Patron/PatronDashboard';
 
 function App() {
   const [userRole, setUserRole] = useState(null); // Manage role state

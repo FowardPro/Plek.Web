@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Signup.module.css';
 
 const Signup = () => {
@@ -8,10 +8,47 @@ const Signup = () => {
   const [age, setAge] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [passwordErrors, setPasswordErrors] = useState([]);
+  const [confirmPasswordError, setConfirmPasswordError] = useState('');
+
+  // Password validation function
+  const validatePassword = (password) => {
+    const errors = [];
+    if (password.length < 6) {
+      errors.push("Password must be at least 6 characters long.");
+    }
+    if (!/[A-Z]/.test(password)) {
+      errors.push("Password must contain at least one uppercase letter.");
+    }
+    if (!/\d/.test(password)) {
+      errors.push("Password must contain at least one digit.");
+    }
+    return errors;
+  };
+
+  // Update password validation errors whenever the password changes
+  useEffect(() => {
+    setPasswordErrors(validatePassword(password));
+
+    // Check if the confirm password matches the original password
+    if (confirmPassword && password !== confirmPassword) {
+      setConfirmPasswordError("Passwords do not match.");
+    } else {
+      setConfirmPasswordError('');
+    }
+  }, [password, confirmPassword]);
 
   const handleSignup = (e) => {
     e.preventDefault();
-    console.log('Creating account with:', { fname, lname, gender, age, email, phone });
+
+    if (passwordErrors.length > 0 || confirmPasswordError) {
+      // Prevent form submission if there are validation errors
+      return;
+    }
+
+    console.log('Creating account with:', { fname, lname, gender, age, email, phone, password });
   };
 
   return (
@@ -93,6 +130,40 @@ const Signup = () => {
               onChange={(e) => setPhone(e.target.value)}
               required
             />
+          </div>
+
+          {/* Password Input */}
+          <div className={styles.inputGroupSignup}>
+            <label htmlFor="password" className={styles.inputLabelSignup}>Password:</label>
+            <input
+              type="password"
+              id="password"
+              className={styles.inputFieldSignup}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            {passwordErrors.length > 0 && (
+              <ul className={styles.errorText}>
+                {passwordErrors.map((error, index) => (
+                  <li key={index}>{error}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          {/* Confirm Password Input */}
+          <div className={styles.inputGroupSignup}>
+            <label htmlFor="confirmPassword" className={styles.inputLabelSignup}>Confirm Password:</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              className={styles.inputFieldSignup}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+            {confirmPasswordError && <p className={styles.errorText}>{confirmPasswordError}</p>}
           </div>
 
           <button type="submit" className={styles.signupButtonSubmit}>Create Account</button>

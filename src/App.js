@@ -19,7 +19,7 @@ function App() {
 
   const handleLogin = (role) => {
     setUserRole(role);
-    sessionStorage.setItem('userRole', role);  // Save role in sessionStorage
+    sessionStorage.setItem('userRole', role); // Save role in sessionStorage
   };
 
   return (
@@ -32,11 +32,11 @@ function App() {
 
           {/* Protected routes for dashboards */}
           <Route
-            path="/admin-dashboard"
+            path="/admin-dashboard/*"
             element={userRole === 'admin' ? <AdminDashboard /> : <Navigate to="/login" />}
           />
           <Route
-            path="/patron-dashboard"
+            path="/patron-dashboard/*"
             element={userRole === 'patron' ? <PatronDashboard /> : <Navigate to="/login" />}
           />
         </Routes>

@@ -28,9 +28,12 @@ const Login = ({ onLogin }) => {
       console.log('API response:', data); // Log the API response
 
       if (data.success) {
-        const { role } = data;
+        const { role, user } = data;
 
         console.log('Login successful. Role:', role); // Log the role
+
+        // Save the entire user data to localStorage
+        localStorage.setItem('user', JSON.stringify(user));
 
         // Case-insensitive role comparison
         if (role.toLowerCase() === 'admin') {

@@ -15,7 +15,7 @@ const LogoutComponent = () => {
         console.log('All storage cleared. Logging out...');
 
         // Redirect to login page
-        navigate('/login');
+        navigate('/');
     };
 
     // Open the dialog

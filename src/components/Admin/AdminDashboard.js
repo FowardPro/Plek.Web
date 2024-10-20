@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import DashboardComponent from './DashboardComponent';
 import UsersComponent from './UsersComponent';
 import FacilitiesComponent from './FacilitiesComponent';
-import ReportsComponent from './ReportsComponent';
+import Bookings from './Bookings';
 import SettingsComponent from './SettingsComponent';
 import LogoutComponent from './LogoutComponent';
 
@@ -29,7 +29,7 @@ const AdminDashboard = () => {
             <Route path="/dashboard" element={<DashboardComponent />} />
             <Route path="users" element={<UsersComponent />} />
             <Route path="facilities" element={<FacilitiesComponent />} />
-            <Route path="reports" element={<ReportsComponent />} />
+            <Route path="bookings" element={<Bookings />} />
             <Route path="settings" element={<SettingsComponent />} />
             <Route path="logout" element={<LogoutComponent />} />
           </Routes>

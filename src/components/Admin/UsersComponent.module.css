@@ -47,3 +47,8 @@ tr:hover {
     color: #777;
     padding: 20px;
 }
+
+.buttonGroup {
+    margin-bottom: 20px;
+    text-align: right;
+}

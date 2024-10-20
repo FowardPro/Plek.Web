@@ -10,6 +10,7 @@ const FacilitiesComponent = () => {
         description: '',
         availability: false,
         price: '',
+        totalAccommodation: '', // Add this field to track total accommodation
         image: null
     });
     const [message, setMessage] = useState('');
@@ -37,6 +38,7 @@ const FacilitiesComponent = () => {
             description: '',
             availability: false,
             price: '',
+            totalAccommodation: '', // Reset this field
             image: null
         });
     };
@@ -64,7 +66,8 @@ const FacilitiesComponent = () => {
         formData.append('Description', newFacility.description);
         formData.append('Availability', newFacility.availability);
         formData.append('Price', newFacility.price);
-        formData.append('ImageData', newFacility.image); // Appending the image file
+        formData.append('TotalAccommodation', newFacility.totalAccommodation); // Add this field
+        formData.append('Image', newFacility.image); // Appending the image file
 
         try {
             const response = await fetch('https://localhost:7008/api/Plack/AddFacility', {
@@ -73,8 +76,9 @@ const FacilitiesComponent = () => {
             });
 
             if (response.ok) {
+                const facility = await response.json();
                 setMessage('Facility added successfully!');
-                setFacilities((prev) => [...prev, newFacility]);
+                setFacilities((prev) => [...prev, facility]); // Update the facility list
                 handleDialogClose();
             } else {
                 setMessage('Failed to add facility.');
@@ -84,8 +88,6 @@ const FacilitiesComponent = () => {
             setMessage('Error while adding facility.');
         }
     };
-
-
 
     return (
         <div className={styles.container}>
@@ -103,11 +105,11 @@ const FacilitiesComponent = () => {
                             alt={facility.name}
                             className={styles.cardImage}
                         />
-
                         <h3>{facility.name}</h3>
                         <p>{facility.description}</p>
                         <p>Price: R{facility.price}</p>
                         <p>{facility.availability ? 'Available' : 'Unavailable'}</p>
+                        <p>Total Accommodation: {facility.totalAccommodation}</p> {/* Display totalAccommodation */}
                     </div>
                 ))}
             </div>
@@ -139,6 +141,15 @@ const FacilitiesComponent = () => {
                         type="number"
                         fullWidth
                         value={newFacility.price}
+                        onChange={handleInputChange}
+                        margin="dense"
+                    />
+                    <TextField
+                        name="totalAccommodation"
+                        label="Total Accommodation"
+                        type="number"
+                        fullWidth
+                        value={newFacility.totalAccommodation} // Add this input field
                         onChange={handleInputChange}
                         margin="dense"
                     />

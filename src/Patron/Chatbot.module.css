@@ -1,0 +1,77 @@
+/* Chatbot Styles */
+.chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    z-index: 100;
+    font-family: Arial, sans-serif;
+  }
+  
+  .chatbotHeader {
+    background-color: #0b4b43;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .chatbotBody {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chatbotMessages {
+    height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .botMessage {
+    background-color: #e0f7fa;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    text-align: left;
+  }
+  
+  .userMessage {
+    background-color: #0b4b43;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    text-align: right;
+  }
+  
+  .chatbotInput {
+    display: flex;
+    padding: 10px;
+  }
+  
+  .chatbotInput input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
+  
+  .chatbotInput button {
+    background-color: #0b4b43;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .chatbotInput button:hover {
+    background-color: #064334;
+  }
+  

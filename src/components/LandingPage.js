@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './LandingPage.module.css';
 
-// Importing images directly from the components folder
-const image1 = require('./image1.png');
-const image2 = require('./image2.png');
-const image3 = require('./image3.png');
-const image4 = require('./image4.png');
+// Importing images directly using ES6 import syntax
+import image1 from './image1.png';
+import image2 from './image2.png';
+import image3 from './image3.png';
+import image4 from './image4.png';
 
 const LandingPage = () => {
   return (

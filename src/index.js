@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import PatronDashboard from './Patron/PatronDashboard';
+import Chatbot from './Patron/Chatbot';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <PatronDashboard />
   </React.StrictMode>
 );
 

@@ -1,13 +1,21 @@
 .adminNav {
     background-color: #2c3e50;
-    padding: 15px 0; /* Padding to prevent sidebar content from touching the edges */
+    padding: 15px 0;
     width: 250px;
-    height: calc(100vh - 60px); /* Adjust height to be below the header */
-    margin-top: 120px; /* Space below the fixed header */
+    /* Default full width */
+    height: calc(100vh - 60px);
+    margin-top: 120px;
     position: fixed;
     top: 0;
     left: 0;
-    overflow-y: auto; /* If sidebar content overflows */
+    overflow-y: auto;
+    transition: width 0.3s ease;
+    /* Smooth transition for width */
+}
+
+.adminNav.collapsed {
+    width: 60px;
+    /* Collapsed width */
 }
 
 .navList {
@@ -21,14 +29,17 @@
 }
 
 .navLink {
-    color: #ecf0f1;
+    color: #ffffff;
+    /* Text color set to white */
     text-decoration: none;
     font-size: 16px;
     display: flex;
     align-items: center;
     padding: 10px;
     border-radius: 4px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+    white-space: nowrap;
+    /* Prevent text from wrapping */
 }
 
 .navLink:hover {
@@ -40,6 +51,76 @@
 }
 
 .icon {
-    margin-right: 10px; /* Space between icon and text */
-    font-size: 20px; /* Adjust the size of the icons */
+    margin-right: 10px;
+    font-size: 20px;
+    /* Adjust the size of the icons */
+    color: #ffffff;
+    /* Icon color set to white */
+    transition: margin-right 0.3s ease;
+    /* Transition for icon spacing */
+}
+
+.adminNav.collapsed .icon {
+    margin-right: 0;
+    /* Remove space between icon and text when collapsed */
+}
+
+.navLink span {
+    display: inline-block;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.adminNav.collapsed .navLink span {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.toggleButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 20px;
+    color: #ffffff;
+    /* Toggle button icon color set to white */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.navListCollapsed {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.icon {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #ffffff;
+    /* Ensure icon color stays white */
+}
+
+/* When the navigation is collapsed */
+.adminNav.collapsed .navLink span {
+    display: none;
+    margin-left: 0;
+}
+
+.adminNav.collapsed .navLink {
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.active {
+    color: #ffffff;
 }

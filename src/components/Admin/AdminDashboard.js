@@ -26,7 +26,7 @@ const AdminDashboard = () => {
         <AdminNav />
         <div style={{ marginLeft: '260px', padding: '20px', width: '100%' }}>
           <Routes>
-            <Route path="/" element={<DashboardComponent />} />
+            <Route path="/dashboard" element={<DashboardComponent />} />
             <Route path="users" element={<UsersComponent />} />
             <Route path="facilities" element={<FacilitiesComponent />} />
             <Route path="reports" element={<ReportsComponent />} />

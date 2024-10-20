@@ -54,7 +54,7 @@ const AdminNav = () => {
                         className={({ isActive }) => isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}
                     >
                         <FaFileAlt className={styles.icon} />
-                        {!isTextHidden && <span>Reports</span>} {/* Conditionally render text */}
+                        {!isTextHidden && <span>Bookings</span>} {/* Conditionally render text */}
                     </NavLink>
                 </li>
                 <li className={styles.navItem}>
